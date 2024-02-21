@@ -1,0 +1,69 @@
+using System;
+
+public class Department
+{
+    public string Name { get; set; }
+    public string Location { get; set; }
+
+    public Department(string name, string location)
+    {
+        Name = name;
+        Location = location;
+    }
+
+    public virtual void DisplayDetails()
+    {
+        Console.WriteLine($"Department Name: {Name}");
+        Console.WriteLine($"Location: {Location}");
+    }
+}
+
+public class Sales : Department
+{
+    public int SalesTeamSize { get; set; }
+
+    public Sales(string name, string location, int salesTeamSize)
+        : base(name, location)
+    {
+        SalesTeamSize = salesTeamSize;
+    }
+
+    public override void DisplayDetails()
+    {
+        base.DisplayDetails();
+        Console.WriteLine($"Sales Team Size: {SalesTeamSize}");
+    }
+}
+
+public class HumanResource : Department
+{
+    public int EmployeesCount { get; set; }
+
+    public HumanResource(string name, string location, int employeesCount)
+        : base(name, location)
+    {
+        EmployeesCount = employeesCount;
+    }
+
+    public override void DisplayDetails()
+    {
+        base.DisplayDetails();
+        Console.WriteLine($"Employees Count: {EmployeesCount}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Sales salesDept = new Sales("Sales Department", "Main Building", 10);
+        HumanResource hrDept = new HumanResource("Human Resource Department", "Annex Building", 20);
+
+        Console.WriteLine("Sales Department Details:");
+        salesDept.DisplayDetails();
+        Console.WriteLine();
+
+        Console.WriteLine("Human Resource Department Details:");
+        hrDept.DisplayDetails();
+    }
+}

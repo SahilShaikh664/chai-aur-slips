@@ -1,0 +1,35 @@
+Imports System.Data.SqlClient
+Imports System.Data.Sql
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Public Class Form1
+
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim connectionString As String
+        Dim con As SqlConnection
+
+        connectionString = "Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Lenovo\OneDrive\Documents\slips.mdf;Integrated Security=True;Connect Timeout=30"
+
+        con = New SqlConnection(connectionString)
+
+        Dim cmd As SqlCommand = New SqlCommand("insert into [dbo].[Emp](Eno,Ename,Salary) values('" & TextBox1.Text & "','" & TextBox2.Text & "', '" & TextBox3.Text & "')", con)
+
+
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
+
+        Dim con1 As SqlConnection
+        con1 = New SqlConnection(connectionString)
+
+
+        Dim cmd2 As SqlCommand = New SqlCommand("select * from [dbo].[Emp]", con1)
+        Dim a As New SqlDataAdapter(cmd2)
+        Dim dt As New DataTable()
+
+        a.Fill(dt)
+        DataGridView1.DataSource = dt
+
+    End Sub
+End Class

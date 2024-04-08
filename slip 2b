@@ -1,69 +1,87 @@
 using System;
 
-public class Department
+
+class Department
 {
     public string Name { get; set; }
-    public string Location { get; set; }
+    public string head { get; set; }
 
-    public Department(string name, string location)
+
+    public virtual void accept()
     {
-        Name = name;
-        Location = location;
+        Console.WriteLine("Enter the Deparment Name");
+        Name = Console.ReadLine();
+
+        Console.WriteLine("Enter the Deparment Head");
+        head = Console.ReadLine();
     }
 
-    public virtual void DisplayDetails()
+    public virtual void display()
     {
-        Console.WriteLine($"Department Name: {Name}");
-        Console.WriteLine($"Location: {Location}");
-    }
-}
-
-public class Sales : Department
-{
-    public int SalesTeamSize { get; set; }
-
-    public Sales(string name, string location, int salesTeamSize)
-        : base(name, location)
-    {
-        SalesTeamSize = salesTeamSize;
-    }
-
-    public override void DisplayDetails()
-    {
-        base.DisplayDetails();
-        Console.WriteLine($"Sales Team Size: {SalesTeamSize}");
+        Console.WriteLine(" Deparment Name :"   + Name);
+        Console.WriteLine(" Deparment Head :"   + head);
     }
 }
 
-public class HumanResource : Department
+class Sales:Department
 {
-    public int EmployeesCount { get; set; }
+    public string location { get; set; }
 
-    public HumanResource(string name, string location, int employeesCount)
-        : base(name, location)
+    public override void accept()
     {
-        EmployeesCount = employeesCount;
+        base.accept();
+        Console.WriteLine("Enter Sale Location");
+        location = Console.ReadLine();
+
     }
 
-    public override void DisplayDetails()
+    public override void display()
     {
-        base.DisplayDetails();
-        Console.WriteLine($"Employees Count: {EmployeesCount}");
+        base.display();
+        Console.WriteLine("Sale Location :" + location);
+    }
+}
+
+class Human:Department
+{
+    public int Employee { get; set; }
+
+    public override void accept()
+    {
+        base.accept();
+        Console.WriteLine("enter THe Number Of Employee");
+        Employee=int.Parse(Console.ReadLine());
+    }
+
+    public override void display()
+    {
+        base.display();
+        Console.WriteLine("Number Of Employee :" + Employee);
     }
 }
 
 class Program
 {
-    static void Main(string[] args)
+    public static void Main(string[] args)
     {
-        Sales salesDept = new Sales("Sales Department", "Main Building", 10);
-        HumanResource hrDept = new HumanResource("Human Resource Department", "Annex Building", 20);
+        Sales sl = new Sales();
+        Human hm = new Human();
 
-        Console.WriteLine("Sales Department Details:");
-        salesDept.DisplayDetails();
-        Console.WriteLine();
+        Console.WriteLine("Enter The Detail of Sales Department");
+        sl.accept();
 
-        Console.WriteLine("Human Resource Department Details:");
-        hrDept.DisplayDetails();
+        Console.WriteLine("Enter The Detail of Human Department");
+        hm.accept();
+
+
+        Console.WriteLine("Detail of Sales Department");
+        sl.display();
+
+        Console.WriteLine("Detail of Human Department");
+        hm.display();
+
+        Console.ReadLine();
+       
     }
+    
 }

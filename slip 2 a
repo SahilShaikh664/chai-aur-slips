@@ -1,28 +1,19 @@
-A) Write a VB.Net Program to display the numbers continuously in TextBox by clicking on Button.
 Public Class Form1
-    Dim WithEvents moveTimer As New Timer()
-    Dim labelPosition As Integer
-    Dim directionRight As Boolean = True
-    Dim speed As Integer = 5 ' Change this value to adjust the speed of movement
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        moveTimer.Interval = 50 ' Adjust this value to control the speed of movement
-        moveTimer.Start()
-        labelPosition = 0
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        If Label1.Left > Me.Width Then
+            Label1.Left = -100
+
+        Else
+            Label1.Left = Label1.Left + 10
+        End If
+
     End Sub
 
-    Private Sub moveTimer_Tick(sender As Object, e As EventArgs) Handles moveTimer.Tick
-        If directionRight Then
-            labelPosition += speed
-            If labelPosition >= Me.ClientSize.Width - Label1.Width Then
-                directionRight = False
-            End If
-        Else
-            labelPosition -= speed
-            If labelPosition <= 0 Then
-                directionRight = True
-            End If
-        End If
-        Label1.Left = labelPosition
+ 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label1.Left = -100
+        Timer1.Enabled = True
     End Sub
 End Class

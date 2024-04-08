@@ -1,0 +1,26 @@
+Module Module1
+
+    Sub Main()
+
+        Dim input As String
+
+        Console.WriteLine("Enter THe Character")
+        input = Console.ReadLine()
+
+        If "aeiou".Contains(input) Then
+            Console.WriteLine("It A Vowel Character" + input)
+
+        Else
+            Console.WriteLine("It a Consonant")
+        End If
+
+        If Char.IsUpper(input) Then
+            Console.WriteLine(input + " :Is A UpperCase Charater")
+
+        ElseIf Char.IsLower(input) Then
+            Console.WriteLine(input + " :is Lowercase Charater")
+        End If
+        Console.ReadLine()
+    End Sub
+
+End Module

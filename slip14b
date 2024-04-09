@@ -1,0 +1,62 @@
+using System;
+
+class Person
+{
+    public string Name { get; set; }
+    public string Address { get; set; }
+}
+
+class Employee : Person
+{
+    public int StaffId { get; set; }
+    public int Salary { get; set; }
+
+    public void Display()
+    {
+        Console.WriteLine("Name: " + Name);
+        Console.WriteLine("Address: " + Address);
+        Console.WriteLine("Staff Id: " + StaffId);
+        Console.WriteLine("Salary: " + Salary);
+        Console.WriteLine();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the Number Of Employees");
+        int n = int.Parse(Console.ReadLine());
+
+        Employee[] emps = new Employee[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("Enter The Details Of Employee " + (i + 1));
+            Employee emp = new Employee();
+
+            Console.Write("Name: ");
+            emp.Name = Console.ReadLine();
+
+            Console.Write("Address: ");
+            emp.Address = Console.ReadLine();
+
+            Console.Write("Staff Id: ");
+            emp.StaffId = int.Parse(Console.ReadLine());
+
+            Console.Write("Salary: ");
+            emp.Salary = int.Parse(Console.ReadLine());
+
+            emps[i] = emp;
+        }
+
+        Console.WriteLine("Employee Details:\n");
+
+        foreach (var emp in emps)
+        {
+            emp.Display();
+        }
+
+        Console.ReadLine();
+    }
+}

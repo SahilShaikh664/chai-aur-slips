@@ -7,6 +7,7 @@ public class Program
         // Example usage of the Sum function
         int result = Sum(5, 3);
         Console.WriteLine("The sum of 5 and 3 is: " + result);
+       Console.ReadLine();
     }
 
     // Function to calculate the sum of two numbers

@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace slip13b
+{
+    class Student
+    {
+        public int Roll_no { get; set; }
+        public string Name { get; set; }
+        public int mark1 { get; set; }
+        public int mark2 { get; set; }
+
+        public int mark3 { get; set; }
+
+        public double Percentage()
+        {
+             int totalMarks = mark1+mark2+mark3;
+            return (double)totalMarks / 3;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine("Roll No:\n" + Roll_no);
+            Console.WriteLine("Name \n" + Name);
+            Console.WriteLine("Mark1 \n" + mark1);
+            Console.WriteLine("Mark2\n" + mark2);
+            Console.WriteLine("Mark3 \n" + mark3);
+            Console.WriteLine("Percentage \n" + Percentage());
+
+        }
+    }
+  class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter The Numaber Of Student");
+            int n = int.Parse(Console.ReadLine());
+
+            Student[] Stud = new Student[n];
+
+            for (int i=0; i<n;i++)
+            {
+                Console.WriteLine("Enter The Detail of Student :"+ i+1);
+                Student St = new Student();
+
+                Console.Write("Enter The Roll_NO Of Student :");
+                St.Roll_no = int.Parse(Console.ReadLine());
+
+                Console.Write("Enter The Name Of Student :");
+                St.Name = (Console.ReadLine());
+
+                Console.Write("Enter The Mark1 :");
+                St.mark1 = int.Parse(Console.ReadLine());
+
+                Console.Write("Enter The Mark2 :");
+                St.mark2 = int.Parse(Console.ReadLine());
+
+                Console.Write("Enter The Mark3 :");
+                St.mark3 = int.Parse(Console.ReadLine());
+
+
+              
+                Stud[i] = St;
+            }
+
+
+            Console.WriteLine("Student Detail \n");
+            foreach ( var st in Stud)
+            {
+                
+                st.Display();
+            }
+            Console.ReadLine();
+        }
+    }
+}

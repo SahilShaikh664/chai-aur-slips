@@ -1,0 +1,76 @@
+using System;
+
+class Customer
+{
+    public int customer_no { get; set; }
+    public string Name { get; set; }
+    public string Address { get; set; }
+    public int item_no { get; set; }
+    public int quantity { get; set; }
+    public double prize { get; set; }
+
+    public double calcu()
+    {
+        return quantity * prize;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter The Number of Customer");
+        int n = int.Parse(Console.ReadLine());
+
+        Customer[] custs = new Customer[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("Enter The detail customer {i + 1}");
+            Customer cust = new Customer();
+
+            Console.WriteLine("Enter THE NO of Customer");
+            cust.customer_no = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter THE Customer Name");
+            cust.Name = Console.ReadLine();
+
+            Console.WriteLine("Enter the address");
+            cust.Address = Console.ReadLine();
+
+            Console.WriteLine("Enter the item no ");
+            cust.item_no = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the quantity");
+            cust.quantity = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the prize");
+            cust.prize = double.Parse(Console.ReadLine());
+
+         
+
+            custs[i] = cust;
+        }
+
+        double total = 0;
+        Console.WriteLine("Detail of Customer");
+
+        foreach (Customer cust in custs)
+        {
+            Console.WriteLine("Customer no: {0}", cust.customer_no);
+            Console.WriteLine("Customer name: {0}", cust.Name);
+            Console.WriteLine("Customer Address: {0}", cust.Address);
+            Console.WriteLine("Customer Item no: {0}", cust.item_no);
+            Console.WriteLine("Customer Quantity:{0}", cust.quantity);
+
+            double totalprize = cust.calcu();
+            Console.WriteLine("Total prize: {0}", totalprize);
+            total += totalprize;
+            Console.WriteLine();
+        }
+
+        Console.WriteLine("Total prize all item: {0}", total);
+
+        Console.ReadLine();
+    }
+}

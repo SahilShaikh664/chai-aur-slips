@@ -1,0 +1,8 @@
+Public Class Form1
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        TextBox1.Text = DateTimePicker1.Value.Day.ToString()
+        TextBox2.Text = DateTimePicker1.Value.Month.ToString()
+        TextBox3.Text = DateTimePicker1.Value.Year.ToString()
+    End Sub
+End Class

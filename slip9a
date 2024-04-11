@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace slip9b
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int num1, num2;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("1 Add");
+                Console.WriteLine("2 Subtraction");
+                Console.WriteLine("3 Multiplication");
+                Console.WriteLine("4 Divsion");
+                Console.WriteLine("5  Exit");
+
+                int choice = int.Parse(Console.ReadLine());
+
+
+                if (choice == 5)
+                {
+                    Console.WriteLine("Exiting program.");
+                    break;
+                }
+
+                Console.Write("Enter First Number\n");
+                num1 = int.Parse(Console.ReadLine());
+                Console.Write("Enter Second Number\n");
+                num2 = int.Parse(Console.ReadLine());
+
+               
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("Addtion of Two Number" + "\n" + (num1 + num2));
+                        break;
+                    case 2:
+                        Console.WriteLine("Subtraction of Two Number" + "\n" + (num1 - num2));
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Multiplication of Two Number" + "\n" + (num1 * num2));
+                        break;
+
+                    case 4:
+                        if (num2 == 0)
+                        {
+                            Console.Write("Cannot Divided With 0");
+                        }
+                        {
+                            Console.WriteLine("Multiplication of Two Number" + "\n" + (num1 / num2));
+
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please enter a number between 1 and 5.");
+                        break;
+
+
+                }
+                Console.ReadLine();
+            } while (true);
+
+
+        }
+    }
+}
+

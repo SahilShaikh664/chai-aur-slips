@@ -1,0 +1,58 @@
+using System;
+
+class Supplier
+{
+    public int sid { get; set; }
+    public string Name { get; set; }
+    public string Address { get; set; }
+    public int pincode { get; set; }
+
+    public void Display()
+    {
+        Console.WriteLine("Supplier_Id: " + sid);
+        Console.WriteLine("Supplier_Name: " + Name);
+        Console.WriteLine("Supplier_Address: " + Address);
+        Console.WriteLine("Supplier_Pincode\n: " + pincode);
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+      
+        Console.WriteLine("Enter The Number Of Suppliers:");
+        int n = int.Parse(Console.ReadLine());
+
+        Supplier[] sups = new Supplier[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine("Enter Supplier Detail: " + (i + 1));
+            Supplier s = new Supplier();
+
+            Console.WriteLine("Supplier Id:");
+            s.sid = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Supplier Name:");
+            s.Name = Console.ReadLine();
+
+            Console.WriteLine("Address:");
+            s.Address = Console.ReadLine();
+
+            Console.WriteLine("Pincode:");
+            s.pincode = int.Parse(Console.ReadLine());
+
+            sups[i] = s;
+        }
+
+        Console.WriteLine("\nSupplier Details:");
+        foreach (var s in sups)
+        {
+           
+                s.Display();
+            
+        }
+        Console.ReadLine();
+    }
+}

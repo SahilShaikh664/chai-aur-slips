@@ -1,0 +1,26 @@
+Public Class WebForm1
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+    End Sub
+
+    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Page.IsValid Then
+            Dim intrest As Double
+            Dim loan As Double
+            Dim duration As Double
+
+            If Double.TryParse(TextBox1.Text, loan) AndAlso
+               Double.TryParse(TextBox2.Text, intrest) AndAlso
+               Double.TryParse(TextBox3.Text, duration) Then
+
+                Dim Total As Double = (loan * intrest * duration) / 100
+
+                Label4.Text = Total.ToString() + "is A Simple Intrest"
+            End If
+
+
+        End If
+    End Sub
+End Class

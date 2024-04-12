@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace slip14a
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Define an array of integers
+            int[] numbers = { 1, 2, 3, 4, 5 };
+
+            // Variable to store the sum
+            int sum = 0;
+
+            // Iterate through the array and add each element to the sum
+            foreach (int num in numbers)
+            {
+                sum += num;
+            }
+
+            // Print the sum
+            Console.WriteLine("The sum of all elements in the array is: " + sum);
+            Console.ReadLine();
+        }
+    }
+}

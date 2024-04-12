@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace slip20b
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Generate an IndexOutOfRangeException
+                int[] array = new int[3];
+                int value = array[5]; // This line will throw the exception
+            }
+            catch (IndexOutOfRangeException )
+            {
+                // Redirect to custom error page
+                Response.Redirect("ErrorPage.aspx");
+            }
+        }
+    }
+}
+
+
+
+create anothe errorpage.aspx
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Error Page</title>
+</head>
+<body>
+    <div>
+           <h1>An error occurred!</h1>
+    <p>Error message: <%= Request.QueryString["errorMessage"] %></p>
+    <p>We apologize for the inconvenience. Please try again later.</p>
+    </div>  
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+web.config
+
+<?xml version="1.0"?>
+<configuration>
+  <system.web>
+    <customErrors mode="On" defaultRedirect="ErrorPage.aspx">
+      <error statusCode="500" redirect="ErrorPage.aspx" />
+      <!-- Add more error codes if needed -->
+    </customErrors>
+    <compilation debug="true"/>
+  </system.web>
+</configuration>

@@ -1,0 +1,11 @@
+Public Class Form1
+
+ 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim Result As Double
+
+        Result = Val(TextBox2.Text) + Val(TextBox3.Text) + Val(TextBox8.Text) + Val(TextBox4.Text) + Val(TextBox5.Text) + Val(TextBox6.Text) + Val(TextBox7.Text)
+
+        TextBox9.Text = Result
+    End Sub
+End Class

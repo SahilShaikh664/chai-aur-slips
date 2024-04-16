@@ -1,26 +1,32 @@
-Public Class WebForm1
-    Inherits System.Web.UI.Page
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+namespace slip5b
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
-    End Sub
+        }
 
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If Page.IsValid Then
-            Dim intrest As Double
-            Dim loan As Double
-            Dim duration As Double
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (IsValid)
+            {
+                double loanAmount = double.Parse(TextBox1.Text);
+                double interst = double.Parse(TextBox2.Text);
+                double duration = double.Parse(TextBox3.Text);
 
-            If Double.TryParse(TextBox1.Text, loan) AndAlso
-               Double.TryParse(TextBox2.Text, intrest) AndAlso
-               Double.TryParse(TextBox3.Text, duration) Then
+                double Simple = (loanAmount * interst * duration) / 100;
 
-                Dim Total As Double = (loan * intrest * duration) / 100
+                Label4.Text = "Simple Interest" + Simple.ToString();
+            }
 
-                Label4.Text = Total.ToString() + "is A Simple Intrest"
-            End If
-
-
-        End If
-    End Sub
-End Class
+        }
+    }
+}

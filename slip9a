@@ -55,7 +55,7 @@ namespace slip9b
                             Console.Write("Cannot Divided With 0");
                         }
                         {
-                            Console.WriteLine("Multiplication of Two Number" + "\n" + (num1 / num2));
+                            Console.WriteLine(" divided of Two Number" + "\n" + (num1 / num2));
 
                         }
                         break;

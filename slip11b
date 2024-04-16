@@ -1,41 +1,48 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-class fruit
+namespace slip11b
 {
-    protected int count;
 
-    public fruit(int count)
+    class Fruit
     {
-        this.count = count;
+        protected int count;
+
+        public Fruit(int count)
+        {
+            this.count = count;
+        }
+        public int Getcount()
+        {
+            return count;
+        }
     }
-    public int Getcount()
+
+    class Apple:Fruit
     {
-        return count;
+        public Apple(int count) : base(count) { }
     }
-}
 
-class Apple:fruit
-{
-    public Apple(int count) : base(count) { }
-}
-
-class Mangoes:fruit
-{
-    public Mangoes(int count) : base(count) { }
-}
-
-class Program
-{
-    public static void Main(string[] args)
+    class Mangoes:Fruit
     {
-        Mangoes man = new Mangoes(10);
-        Apple app = new Apple(10);
-
-        int total = app.Getcount() + man.Getcount();
-
-        Console.WriteLine("Total Number Of Fruit" + total);
-        Console.ReadLine();
+        public Mangoes(int count) : base(count) { }
     }
-    
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Apple a = new Apple(10);
+            Mangoes m =new Mangoes(10);
+
+            int result = a.Getcount() + m.Getcount();
+
+            Console.WriteLine("Total No Of Apple:" + a.Getcount());
+            Console.WriteLine("Total No Of Mangoes:" + m.Getcount());
+            Console.WriteLine("No OF Fruit in the Basket:" + result);
+            Console.ReadLine();
+        }
+    }
 }

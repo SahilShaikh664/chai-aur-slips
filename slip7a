@@ -1,45 +1,45 @@
-
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace slip7a
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class WebForm1 : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int num = int.Parse(TextBox1.Text);
+            try
+            {
+                int num = int.Parse(TextBox1.Text);
 
-            if(isPerfectNum(num))
-            {
-                Label1.Text = num + "is A Perfect Number";
+                if (IsPerfectNumber(num))
+                {
+                    Label1.Text = $"{num} is a Perfect Number";
+                }
+                else
+                {
+                    throw new Exception($"{num} is not a perfect number.");
+                }
             }
-            else
+            catch (FormatException)
             {
-                 throw new Exception("{num} is not a perfect number.");
+                Label1.Text = "Please enter a valid integer.";
             }
         }
 
-        private bool isPerfectNum(int num)
+        private bool IsPerfectNumber(int num)
         {
             int sum = 0;
 
-            for(int i=1; i<num; i++)
+            for (int i = 1; i < num; i++)
             {
-                if(num % i==0)
+                if (num % i == 0)
                 {
                     sum += i;
                 }
-                
             }
             return sum == num;
         }

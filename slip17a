@@ -1,27 +1,31 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DisplayVowels
+namespace slip17a
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a string: ");
+            Console.WriteLine("Enter input String");
             string input = Console.ReadLine();
 
-            Console.WriteLine("Vowels in the string:");
+            string vowel = "aeiouAEIOU";
 
-            foreach (char c in input)
+            Console.WriteLine("Vowel In Given String");
+
+            for(int i=0;i<input.Length;i++)
             {
-                if (char.ToLower(c) == 'a' || char.ToLower(c) == 'e' || char.ToLower(c) == 'i' ||
-                    char.ToLower(c) == 'o' || char.ToLower(c) == 'u')
+                if(vowel.Contains(input[i]))
                 {
-                    Console.WriteLine(c);
+                    Console.WriteLine(input[i] + " "); 
                 }
             }
+            Console.ReadLine();
 
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
         }
     }
 }

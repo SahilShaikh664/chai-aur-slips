@@ -1,24 +1,17 @@
- Write a VB.NET program to generate Sample Tree View control
- Imports System.Windows.Forms
+Imports System.Windows.Forms
 
 Public Class Form1
-    Inherits Form
-
-    Public Sub New()
-
-        Me.Text = "Sample of Treeview controller"
-        Me.Size = New Size(400, 400)
-
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim treeView1 As New TreeView()
         treeView1.Location = New Point(10, 10)
-        treeView1.Size = New Size(300, 300)
+        treeView1.Size = New Size(200, 200)
 
         Dim node1 As New TreeNode("Node1")
         node1.Nodes.Add("Subnode 1.1")
         node1.Nodes.Add("Subnode 1.2")
 
         Dim node2 As New TreeNode("Node2")
-        node2.Nodes.add("Subnode 2.1")
+        node2.Nodes.Add("Subnode 2.1")
         node2.Nodes.Add("Subnode 2.2")
 
         treeView1.Nodes.Add(node1)
@@ -26,10 +19,4 @@ Public Class Form1
 
         Me.Controls.Add(treeView1)
     End Sub
-    Public Shared Sub Main()
-        ' Run the application.
-        Application.Run(New Form1())
-    End Sub
-
-
 End Class

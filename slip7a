@@ -1,3 +1,4 @@
+
 using System;
 using System.Web.UI;
 
@@ -11,24 +12,30 @@ namespace slip7a
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
             try
             {
+                // Get the number entered by the user
                 int num = int.Parse(TextBox1.Text);
 
+                // Check if the number is perfect
+
+
+
                 if (IsPerfectNumber(num))
-                {
-                    Label1.Text = $"{num} is a Perfect Number";
-                }
+                    Label1.Text = num.ToString() + "is a perfect number.";
                 else
-                {
-                    throw new Exception($"{num} is not a perfect number.");
-                }
+                    throw new Exception(num.ToString() + "is not a perfect number.");
             }
-            catch (FormatException)
+            catch (Exception ex)
             {
-                Label1.Text = "Please enter a valid integer.";
+                Label1.Text = ex.Message;
             }
         }
+        
+            
+           
+        
 
         private bool IsPerfectNumber(int num)
         {
@@ -45,3 +52,4 @@ namespace slip7a
         }
     }
 }
+

@@ -70,6 +70,8 @@ web.config
       <error statusCode="500" redirect="ErrorPage.aspx" />
       <!-- Add more error codes if needed -->
     </customErrors>
+<tracing enabled="true" requestLimit="10" pageOutput="false" traceMode="SortByTime" localOnly="true" />
+
     <compilation debug="true"/>
   </system.web>
 </configuration>
